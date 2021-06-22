@@ -12,8 +12,10 @@ public class ConsoleExercises {
         System.out.println("Enter your length, width, height: ");
 
         float length = Float.parseFloat(scanner.next());
-//        float width = Float.parseFloat(scanner.next());
-//        float height = Float.parseFloat(scanner.next());
+/*
+        float width = Float.parseFloat(scanner.next());
+        float height = Float.parseFloat(scanner.next());
+*/
 
         double width = Double.parseDouble(scanner.next());
         double height = Double.parseDouble(scanner.next());
