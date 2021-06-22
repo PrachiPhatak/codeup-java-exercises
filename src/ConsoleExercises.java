@@ -6,17 +6,19 @@ import java.util.Scanner;
  */
 public class ConsoleExercises {
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
+        scanner.useDelimiter("\n");
 
-        System.out.println("Enter your length: ");
-        double length = Double.parseDouble(input.next());
+        System.out.println("Enter your length, width, height: ");
 
-        System.out.println("Enter your width: ");
-        double width = Double.parseDouble(input.next());
+        float length = Float.parseFloat(scanner.next());
+//        float width = Float.parseFloat(scanner.next());
+//        float height = Float.parseFloat(scanner.next());
 
-        System.out.println("Enter your width: ");
-        double height = Double.parseDouble(input.next());
+        double width = Double.parseDouble(scanner.next());
+        double height = Double.parseDouble(scanner.next());
 
+        System.out.printf("For give length: %f, width: %f, height: %f \n", height, width, height);
         System.out.println("Area of given rectangle: " + (length * width));
         System.out.println("Perimeter of given rectangle: " + (2 * length * width));
         System.out.println("Volume of the room: "+ (width * height * length));
