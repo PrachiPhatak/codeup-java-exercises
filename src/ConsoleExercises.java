@@ -1,14 +1,20 @@
+import java.util.Date;
+import java.util.Scanner;
+
+/* TODO: use the scanner to take in the name of the month you were born and print it back out
+    - remember to first prompt the user for the input
+ */
 public class ConsoleExercises {
     public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter your name: ");
+        String firstName =  input.next();
+
+        System.out.println("Enter your birthday month: ");
+        String birthday =  input.next();
 
 
-        System.out.print("My name is Casey");
-        System.out.println(" Edwards");
+        System.out.printf("%s's birthday is in %s", firstName,birthday);
 
-        String name ="Prachi";
-
-        String mySentence = String.format("My name is %s and I am a %s.", name, "Student");
-        System.out.printf("I will sell my land for $%f", 100.006);
-        System.out.println(mySentence);
     }
 }
