@@ -14,6 +14,7 @@ public class ConsoleExercises {
         System.out.println("Enter your width: ");
         int width =  input.nextInt();
 
-        System.out.println("Area of given rectangle: " + (2 * length * width));
+        System.out.println("Area of given rectangle: " + (length * width));
+        System.out.println("Perimeter of given rectangle: " + (2 * length * width));
     }
 }
