@@ -7,14 +7,13 @@ import java.util.Scanner;
 public class ConsoleExercises {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        System.out.println("Enter your name: ");
-        String firstName =  input.next();
 
-        System.out.println("Enter your birthday month: ");
-        String birthday =  input.next();
+        System.out.println("Enter your length: ");
+        int length = Integer.parseInt(input.next());
 
+        System.out.println("Enter your width: ");
+        int width =  input.nextInt();
 
-        System.out.printf("%s's birthday is in %s", firstName,birthday);
-
+        System.out.println("Area of given rectangle: " + (2 * length * width));
     }
 }
