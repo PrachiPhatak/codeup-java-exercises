@@ -22,7 +22,7 @@ public class ConsoleExercises {
 
         System.out.printf("For give length: %f, width: %f, height: %f \n", height, width, height);
         System.out.println("Area of given rectangle: " + (length * width));
-        System.out.println("Perimeter of given rectangle: " + (2 * length * width));
+        System.out.println("Perimeter of given rectangle: " + (2 * (length + width)));
         System.out.println("Volume of the room: "+ (width * height * length));
     }
 }
