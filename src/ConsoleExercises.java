@@ -9,12 +9,16 @@ public class ConsoleExercises {
         Scanner input = new Scanner(System.in);
 
         System.out.println("Enter your length: ");
-        int length = Integer.parseInt(input.next());
+        double length = Double.parseDouble(input.next());
 
         System.out.println("Enter your width: ");
-        int width =  input.nextInt();
+        double width = Double.parseDouble(input.next());
+
+        System.out.println("Enter your width: ");
+        double height = Double.parseDouble(input.next());
 
         System.out.println("Area of given rectangle: " + (length * width));
         System.out.println("Perimeter of given rectangle: " + (2 * length * width));
+        System.out.println("Volume of the room: "+ (width * height * length));
     }
 }
