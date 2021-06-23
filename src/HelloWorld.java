@@ -1,38 +1,38 @@
+import java.util.Scanner;
+
 public class HelloWorld {
 
     public static void main(String[] args) {
 
-        int myFavoriteNumber = 6;
-        System.out.println(myFavoriteNumber);
+        //  MINI EXERCISE
+        //  TODO: create three unique usernames (user1, user2, user3).
+        //  create a fourth user and set it equal to user input. (ask
+        //  the user to enter a username). if the username has already
+        //  been used by user1, user2, or user3, print "sorry this
+        //  username already exists.
 
-        String myString = "Kids";
-        System.out.println(myString);
+        String user1 = "Casey";
+        String user2 = "Dorian";
+        String user3 = "Laura";
+        String user4 = "Tristan";
 
-        // myString = 'c' gives error
-        // myString = 3.14 gives error
+        while (true) {
+            System.out.println("Enter user name: ");
+            Scanner scanner = new Scanner(System.in);
+            String userName = scanner.next();
 
-        float myNumber = 3.14f;
-        // Gives error as it's not initialized
-        System.out.println(myNumber);
+            if ((userName.equalsIgnoreCase(user1) || (userName.equalsIgnoreCase(user2)) ||
+                    (userName.equalsIgnoreCase(user3) || (userName.equalsIgnoreCase(user4))))) {
+                System.out.println("Sorry, username has already been used.");
+            } else {
+                System.out.println("User created successfully!");
+                return;
+            }
 
-        int x = 5;
-        System.out.println(x++);
-        System.out.println(x);
-
-        int y = 10;
-        System.out.println(++y);
-        System.out.println(y);
-
-        int x1 = 10;
-        int y1 = 2;
-        x1 = x1 / y1;
-        y1 = y1 - x1;
-        System.out.println(x1);
-        System.out.println(y1);
-
-        var c = 10L;
-        System.out.println(((Object)c).getClass());
-
-
+            System.out.println("Do you want to continue (y/n)");
+            String userInput = scanner.next();
+            if (userInput.equalsIgnoreCase("n"))
+                return;
+        }
     }
 }
