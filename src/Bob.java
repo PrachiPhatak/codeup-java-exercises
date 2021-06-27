@@ -6,20 +6,28 @@ public class Bob {
         //TODO: using previous mini exercise,
         // allow the user to input a new username several times
         // until a unique username is entered.
-
-        System.out.println("You said - ");
         Scanner scanner = new Scanner(System.in);
-        String que = scanner.nextLine();
-        if(que.endsWith("?")){
-            System.out.println("Bob says: Sure");
-        }else if(que.endsWith("!")){
-            System.out.println("Bob says: Whoa, chill out!");
-        }else if(que.isEmpty()){
-            System.out.println("Bob says: Fine. Be that way");
-        }
-        else{
-            System.out.println("Bob says: Whatever");
-        }
+        String userInput ="";
+        do{
+            System.out.println("You said - ");
+
+            String que = scanner.nextLine();
+            if(que.endsWith("?")){
+                System.out.println("Bob says: Sure");
+            }else if(que.endsWith("!")){
+                System.out.println("Bob says: Whoa, chill out!");
+            }else if(que.isEmpty()){
+                System.out.println("Bob says: Fine. Be that way");
+            }
+            else{
+                System.out.println("Bob says: Whatever");
+            }
+
+            System.out.println("Do you still want to talk to Bob? (y/n)");
+            userInput = scanner.nextLine();
+
+        }while(!userInput.equalsIgnoreCase("n"));
+
 
     }
 }
