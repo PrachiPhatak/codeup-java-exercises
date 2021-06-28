@@ -27,7 +27,5 @@ public class Bob {
             userInput = scanner.nextLine();
 
         }while(!userInput.equalsIgnoreCase("n"));
-
-
     }
 }
