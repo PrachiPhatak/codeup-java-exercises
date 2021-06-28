@@ -30,11 +30,18 @@ public class MethodsExercises {
     }
 
     public static void multiplication2(int a) {
-        if(a<=0){
-            return;
-        }
-        System.out.println(a);
-        multiplication2(a-1);
+        //TODO
+//        int counter = 1;
+//        do{
+//
+//        }while(false);
+//        System.out.println(counter * a);
+//
+//        if(counter >= 10){
+//            return;
+//        }
+//        counter++;
+//        multiplication2(a);
     }
 
 }
