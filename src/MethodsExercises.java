@@ -6,6 +6,7 @@ public class MethodsExercises {
         System.out.println(division(5, 10));
         //if divided by zero, it throws Exception
         System.out.println(modulus(5, 10));
+        multiplication2(10);
     }
 
     public static int addition(int a, int b) {
@@ -26,6 +27,14 @@ public class MethodsExercises {
 
     public static int modulus(int a, int b) {
         return a % b;
+    }
+
+    public static void multiplication2(int a) {
+        if(a<=0){
+            return;
+        }
+        System.out.println(a);
+        multiplication2(a-1);
     }
 
 }
