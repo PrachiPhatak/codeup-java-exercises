@@ -1,12 +1,24 @@
+import java.util.Scanner;
+
 public class MethodsExercises {
     public static void main(String[] args) {
+
 //        System.out.println(addition(5, 10));
 //        System.out.println(subtraction(5, 10));
 //        System.out.println(multiplication(5, 10));
 //        System.out.println(division(5, 10));
 //        //if divided by zero, it throws Exception
 //        System.out.println(modulus(5, 10));
-        multiplicationTableWithRec(12, 1);
+//        multiplicationTable(12);
+        int num = getInteger(10, 100);
+        System.out.printf("Factorial %d is %d.", num, getFactorial(num));
+    }
+
+    public static long getFactorial(int num) {
+        if (num >= 1)
+            return num * getFactorial(num - 1);
+        else
+            return 1;
     }
 
     public static int addition(int a, int b) {
@@ -37,7 +49,21 @@ public class MethodsExercises {
         }
     }
 
-    public static void multiplicationTableWithRec(int number, int i) {
-
+    public static int getInteger(int min, int max) {
+        Scanner scanner = new Scanner(System.in);
+        String userChoice = "";
+        int userInput;
+        do {
+            System.out.printf("Enter int between %d-%d", min, max);
+            userInput = scanner.nextInt();
+            if (userInput >= min && userInput <= max) {
+                break;
+            } else {
+                System.out.println("Not in Range");
+            }
+            System.out.println("Do you want to continue? (y/n)");
+            userChoice = scanner.next();
+        } while (!userChoice.equalsIgnoreCase("n"));
+        return userInput;
     }
 }
