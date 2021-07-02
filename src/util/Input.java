@@ -10,8 +10,8 @@ public class Input {
         return string;
     }
 
-    public boolean yesNo(){
-        return true;
+    public boolean yesNo(String userInput){
+        return userInput.equalsIgnoreCase("y");
     }
 
     public int getInt(int min, int max){
@@ -27,6 +27,6 @@ public class Input {
     }
 
     public String prompt(){
-        return "";
+        return "Enter ";
     }
 }
