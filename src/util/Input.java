@@ -3,14 +3,18 @@ package util;
 import java.util.Scanner;
 
 public class Input {
-    private Scanner scanner = new Scanner(System.in);
+    private Scanner scanner;
     private String string;
 
+    public Input(){
+        scanner = new Scanner(System.in);
+    }
     public String getString(){
         return string;
     }
 
     public boolean yesNo(String userInput){
+
         return userInput.equalsIgnoreCase("y");
     }
 
