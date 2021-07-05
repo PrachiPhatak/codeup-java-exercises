@@ -1,19 +1,18 @@
 package shapes;
 
-public class Reactangle {
-    protected double length;
-    protected double width;
+public class Reactangle extends Quadrilateral{
 
-    public Reactangle(double length, double width) {
-        this.length = length;
-        this.width = width;
+    public Reactangle(float length, float width) {
+        super(length, width);
     }
 
-    public double getArea() {
-        return length * width;
+    @Override
+    public void setLength(float length) {
+        super.length = length;
     }
 
-    public double getPerimeter() {
-        return 2 * (length + width);
+    @Override
+    public void setWidth(float width) {
+        super.width = width;
     }
 }
