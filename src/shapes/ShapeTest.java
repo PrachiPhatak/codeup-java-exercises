@@ -10,5 +10,7 @@ public class ShapeTest {
         Measurable box1 = new Reactangle(5,4);
         System.out.println("Area "+ box1.getArea());
         System.out.println("Area "+ box1.getPerimeter());
+
+        //Reactangle rect = new Quadrilateral();
     }
 }
