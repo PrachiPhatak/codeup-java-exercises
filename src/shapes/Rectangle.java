@@ -1,8 +1,8 @@
 package shapes;
 
-public class Reactangle extends Quadrilateral{
+public class Rectangle extends Quadrilateral implements Measurable{
 
-    public Reactangle(float length, float width) {
+    public Rectangle(float length, float width) {
         super(length, width);
     }
 
@@ -14,5 +14,10 @@ public class Reactangle extends Quadrilateral{
     @Override
     public void setWidth(float width) {
         super.width = width;
+    }
+
+    @Override
+    public float getPerimeter() {
+        return super.getPerimeter();
     }
 }
