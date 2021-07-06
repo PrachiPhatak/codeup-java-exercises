@@ -1,6 +1,6 @@
 package shapes;
 
-public abstract class Quadrilateral extends Shape implements Measurable {
+abstract class Quadrilateral extends Shape implements Measurable {
     protected float length;
     protected float width;
 

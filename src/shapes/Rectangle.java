@@ -16,8 +16,4 @@ public class Rectangle extends Quadrilateral implements Measurable{
         super.width = width;
     }
 
-    @Override
-    public float getPerimeter() {
-        return super.getPerimeter();
-    }
 }
