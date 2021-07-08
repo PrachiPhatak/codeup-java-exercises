@@ -6,45 +6,49 @@ public class Calculator {
     float num1 = 0;
     float num2 = 0;
     String operator;
-    String userChoice ="";
+    String userChoice = "";
 
     public Calculator() {
         initCalc();
     }
 
-    public void initCalc(){
+    public void initCalc() {
         Scanner scanner = new Scanner(System.in);
-        do{
+        do {
             System.out.println("Enter first number ");
             num1 = Float.parseFloat(scanner.next());
-
-            System.out.println("Enter the operation ");
-            operator = scanner.next();
 
             System.out.println("Enter second number ");
             num2 = Float.parseFloat(scanner.next());
 
-            System.out.println(calculate());
+            System.out.println(calculate(scanner));
 
             System.out.println("Do you wish to continue? (y/n)");
             userChoice = scanner.next();
-        }while(!userChoice.equalsIgnoreCase("n"));
+        } while (!userChoice.equalsIgnoreCase("n"));
     }
 
-    private float calculate() {
-
-        switch(operator){
+    private float calculate(Scanner scanner) {
+        System.out.println("Enter operation ");
+        operator = scanner.next();
+        float temp = 0;
+        switch (operator) {
             case "+":
-                return num1 + num2;
+                temp = num1 + num2;
+                break;
             case "-":
-                return num1 - num2;
+                temp= num1 - num2;
+                break;
             case "*":
-                return num1 * num2;
+                temp= num1 * num2;
+                break;
             case "/":
-                return num1 / num2;
+                temp = num1 / num2;
+                break;
             default:
-                return 0;
+                temp = calculate(scanner);
+                break;
         }
+        return temp;
     }
-
 }
