@@ -1,22 +1,21 @@
 package collection;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class ArrayLecture {
+     private static final Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
-        int[] intArray = new int[3];
-        System.out.println(Arrays.toString(getIntArray(5)));
+        System.out.println(Arrays.toString(getStringArray()));
     }
 
-    public static int[] getIntArray(){
-        return new int[]{1,2,3};
+    public static String[] getStringArray(){
+        System.out.println("Enter your name: ");
+        return  scanner.nextLine().split(" ");
     }
 
-    public static int[] getIntArray(int length){
-        int[] intArray = new int[length];
-        for(int i = 0; i < length; i++){
-            intArray[i] = i+1;
-        }
-        return intArray;
+    public static String[] getStringArray(int length){
+        return new String[length];
     }
 }
