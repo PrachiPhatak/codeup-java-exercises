@@ -21,6 +21,11 @@ class Person implements Printable {
     String firstName;
     String lastName;
 
+    /**
+     *
+     * @param firstName - Person's first name
+     * @param lastName - Person's last name
+     */
     public Person(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
