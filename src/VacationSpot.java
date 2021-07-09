@@ -9,7 +9,11 @@ import java.util.Arrays;
 //  -> When the user decides to finish inputting spots, print out all of their entries!
 
 public class VacationSpot {
-    static String[] vacationSpotArray = {"Bali", "Paris"};
+    static String[] vacationSpotArray = {"Santorini, Greece",
+                                        "Tuscany, Italy",
+                                        "Bali, Indonesia",
+                                        "Lake Tahoe, California",
+                                        "Aspen, Colorado"};
 
     public String[] getVacationSpots() {
         return vacationSpotArray;
@@ -23,10 +27,10 @@ public class VacationSpot {
     }
 
     public void printAllDestination() {
-        System.out.println("******** All Destinations ********");
+        System.out.println("******** All Destinations ********\n");
         for (String destination : vacationSpotArray) {
-            System.out.println(" >>> " + destination);
+            System.out.println(" -->    " + destination);
         }
-        System.out.println("**********************************");
+        System.out.println("\n**********************************");
     }
 }
