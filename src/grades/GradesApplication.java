@@ -1,8 +1,5 @@
 package grades;
 
-import movies.Movie;
-import movies.MovieArray;
-
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -67,7 +64,10 @@ public class GradesApplication {
                 showStudentInfo(name, students);
                 break;
             case 3:
-                System.out.println("work in progress");
+                System.out.println("Overall class average is " + showClassAverage(students));
+                break;
+            case 4:
+                printCsvReport(students);
                 break;
             default:
                 System.out.println("Invalid choice");
@@ -75,11 +75,31 @@ public class GradesApplication {
         showResults(scanner, students);
     }
 
+    private static void printCsvReport(HashMap<String, Student> students) {
+        Student student;
+        System.out.println("\n------------ csv report --------------------");
+        System.out.println("name,github_username,average");
+        for (Map.Entry<String, Student> studentEntry : students.entrySet()) {
+            student = (Student) studentEntry.getValue();
+            System.out.println(student.getName()+","+studentEntry.getKey()+","+student.getGradeAverage());
+        }
+        System.out.println("------------------------------------------");
+    }
+
+    private static double showClassAverage(HashMap<String, Student> students) {
+        double totalAvg = 0;
+        Student student;
+        for (Map.Entry<String, Student> studentEntry : students.entrySet()) {
+            student = (Student) studentEntry.getValue();
+            totalAvg = totalAvg + student.getGradeAverage();
+        }
+        return totalAvg / students.size();
+    }
+
     private static void showStudentsInfo(HashMap<String, Student> students) {
-        Iterator studentsIterator = students.entrySet().iterator();
-        while (studentsIterator.hasNext()) {
-            Map.Entry mapElement = (Map.Entry) studentsIterator.next();
-            Student student = (Student) mapElement.getValue();
+        Student student;
+        for (Map.Entry<String, Student> studentEntry : students.entrySet()) {
+            student = (Student) studentEntry.getValue();
             student.print();
         }
     }
@@ -90,7 +110,8 @@ public class GradesApplication {
                 "0 - exit\n" +
                 "1 - view all users\n" +
                 "2 - view more information for a student\n" +
-                "3 - WIP - view class average\n" +
+                "3 - view class average\n" +
+                "4 - print a csv report of all the students\n" +
                 "\n" +
                 "Enter your choice: ");
         return Integer.parseInt(scanner.nextLine());
@@ -107,13 +128,9 @@ public class GradesApplication {
     }
 
     private static void printName(HashMap<String, Student> students) {
-        Iterator hmIterator = students.entrySet().iterator();
         System.out.print("| ");
-        while (hmIterator.hasNext()) {
-            Map.Entry mapElement = (Map.Entry) hmIterator.next();
-            Student student = (Student) mapElement.getValue();
-            System.out.print(mapElement.getKey() + " | ");
-        }
+        for (Map.Entry<String, Student> student : students.entrySet())
+            System.out.print(student.getKey() + " | ");
         System.out.println("\n");
     }
 }

@@ -1,29 +1,13 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class collectionLecture {
     public static void main(String[] args) {
-        ArrayList<String> stringArr = new ArrayList<>();
+        HashMap<Integer, String > myHashMap = new HashMap<>();
+        for (int i = 0; i < 11; i++) {
+            myHashMap.put(i, "User"+i);
+        }
+        System.out.println(myHashMap.containsValue("User3"));
 
-        stringArr.add("Casey");
-        System.out.println(stringArr);
-        System.out.println(stringArr.size());
-        System.out.println(stringArr.hashCode());
-
-        stringArr.add("Laura");
-        System.out.println(stringArr);
-        System.out.println(stringArr.size());
-        System.out.println(stringArr.hashCode());
-
-        stringArr.add("Jordy");
-        System.out.println(stringArr);
-        System.out.println(stringArr.size());
-        System.out.println(stringArr.hashCode());
-
-        stringArr.remove(2);
-        System.out.println(stringArr);
-        System.out.println(stringArr.size());
-        System.out.println(stringArr.hashCode());
-
-        System.out.println("Instructor at first "+ stringArr.get(0));
     }
 }
