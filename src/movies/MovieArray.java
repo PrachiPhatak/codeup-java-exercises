@@ -135,6 +135,7 @@ public class MovieArray {
 
     }
 
+
     public static void addNewMovie(Movie newMovie) {
         Movie[] oldMoviesArray = movieArray;
         movieArray = Arrays.copyOf(oldMoviesArray, oldMoviesArray.length + 1);
