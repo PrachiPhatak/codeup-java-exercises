@@ -3,21 +3,47 @@ package GroceryList;
 import java.util.Scanner;
 
 public class Input {
-    Scanner scanner = new Scanner(System.in);
+    Scanner scanner;
+    ShoppingCart shoppingCart;
 
-    public void showMainMenu(Scanner scanner) {
+    public Input(Scanner scanner, ShoppingCart shoppingCart) {
+        this.scanner = scanner;
+        this.shoppingCart = shoppingCart;
+    }
+
+    public void init(){
+        System.out.println(
+                "----------------------------- Welcome to FARM TO DOOR Groceries -----------------------------");
+
+        showMainMenu();
+
+        System.out.println(
+                "---------------------------------------- Thank you ------------------------------------------");
+
+    }
+
+    public void showMainMenu() {
         System.out.println("Would you like to create a grocery list? (y/n)");
         String createGroceryList = scanner.nextLine();
         if(createGroceryList.equalsIgnoreCase("y")){
-            System.out.println("Would you like to enter a new item? (y/n)");
-            String createNewItem = scanner.nextLine();
-            if(createNewItem.equalsIgnoreCase("y")){
-                System.out.println(
-                        "Select the category - Beverages, Dairy, Produce\n" +
-                        "Enter the name of the item.\n" +
-                        "Enter how many of the item.\n");
-                //String createNewItem = scanner.nextLine();
-            }
+            createGroceryList();
+        }else if(!createGroceryList.equalsIgnoreCase("n")){
+            System.out.println("Invalid choice");
         }
+    }
+
+    private void createGroceryList() {
+        System.out.println("Would you like to enter a new item? (y/n)");
+        String createNewItem = scanner.nextLine();
+        if(createNewItem.equalsIgnoreCase("y")){
+            addItem();
+        }else{
+            showMainMenu();
+        }
+    }
+
+    private void addItem() {
+        System.out.println("Enter category");
+        System.out.println("s");
     }
 }
