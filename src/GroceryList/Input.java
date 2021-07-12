@@ -3,15 +3,9 @@ package GroceryList;
 import java.util.Scanner;
 
 public class Input {
-    Scanner scanner;
-    ShoppingCart shoppingCart;
+    private static final Scanner scanner = new Scanner(System.in);
 
-    public Input(Scanner scanner, ShoppingCart shoppingCart) {
-        this.scanner = scanner;
-        this.shoppingCart = shoppingCart;
-    }
-
-    public void init() {
+    public static void init() {
         System.out.println(
                 "----------------------------- Welcome to FARM TO DOOR Groceries -----------------------------");
 
@@ -22,7 +16,7 @@ public class Input {
 
     }
 
-    public void showMainMenu() {
+    public static void showMainMenu() {
         System.out.println("Main Menu \n" +
                 "0 - exit\n" +
                 "1 - Would you like to create a grocery list?\n" +
@@ -33,14 +27,14 @@ public class Input {
             case 0:
                 return;
             case 1:
-                createGroceryList();
+                createGroceryList(new ShoppingCart());
                 break;
             default:
                 System.out.println("Invalid choice");
         }
     }
 
-    private void createGroceryList() {
+    private static void createGroceryList(ShoppingCart shoppingCart) {
         System.out.println("\nMake Grocery List\n" +
                 "0 - exit\n" +
                 "1 - Main menu\n" +
@@ -60,36 +54,36 @@ public class Input {
                 showMainMenu();
                 break;
             case 2:
-                addItem();
-                createGroceryList();
+                addItem(shoppingCart);
+                createGroceryList(shoppingCart);
                 break;
             case 3:
-                editItem();
-                createGroceryList();
+                editItem(shoppingCart);
+                createGroceryList(shoppingCart);
                 break;
             case 4:
-                deleteItem();
-                createGroceryList();
+                deleteItem(shoppingCart);
+                createGroceryList(shoppingCart);
                 break;
             case 5:
                 shoppingCart.printShoppingCart();
-                createGroceryList();
+                createGroceryList(shoppingCart);
                 break;
             case 6:
                 shoppingCart.sortCartByCategory();
-                createGroceryList();
+                createGroceryList(shoppingCart);
                 break;
             case 7:
-                createSampleCart();
-                createGroceryList();
+                createSampleCart(shoppingCart);
+                createGroceryList(shoppingCart);
                 break;
             default:
                 System.out.println("Invalid choice");
-                createGroceryList();
+                createGroceryList(shoppingCart);
         }
     }
 
-    private void deleteItem() {
+    private static void deleteItem(ShoppingCart shoppingCart) {
         System.out.println("-------Delete item in the cart----------");
         System.out.println("Categories:  " + shoppingCart.getCategories());
         System.out.println("Enter category: ");
@@ -100,7 +94,7 @@ public class Input {
         shoppingCart.deleteItem(name, category);
     }
 
-    private void editItem() {
+    private static void editItem(ShoppingCart shoppingCart) {
         System.out.println("-------Edit item quantity in the cart----------");
         System.out.println("Categories:  " + shoppingCart.getCategories());
         System.out.println("Enter category: ");
@@ -113,7 +107,7 @@ public class Input {
         shoppingCart.editItem(name, category, quantity);
     }
 
-    private void addItem() {
+    private static void addItem(ShoppingCart shoppingCart) {
         System.out.println("-------Add item to the cart----------");
         System.out.println("Available Categories:  " + shoppingCart.getCategories());
         System.out.println("Choose category: ");
@@ -122,19 +116,22 @@ public class Input {
         String name = scanner.nextLine();
         System.out.println("Add Quantity: ");
         int quantity = Integer.parseInt(scanner.nextLine());
+
         shoppingCart.addItemToShoppingCart(category, name, quantity);
 
     }
 
-    public void createSampleCart(){
-        shoppingCart.addItemToShoppingCart("dairy","milk", 1);
-        shoppingCart.addItemToShoppingCart("dairy","yogurt", 3);
-        shoppingCart.addItemToShoppingCart("produce","Peas", 3);
-        shoppingCart.addItemToShoppingCart("beverages","coconut water", 3);
-        shoppingCart.addItemToShoppingCart("beverages","water", 5);
-        shoppingCart.addItemToShoppingCart("beverages","juice", 2);
-        shoppingCart.addItemToShoppingCart("produce","Spinach", 2);
-        shoppingCart.addItemToShoppingCart("produce","Kale", 1);
-        shoppingCart.addItemToShoppingCart("produce","Green beans", 1);
+    public static void createSampleCart(ShoppingCart shoppingCart) {
+        shoppingCart.addItemToShoppingCart("dairy", "milk", 1);
+        shoppingCart.addItemToShoppingCart("dairy", "yogurt", 3);
+        shoppingCart.addItemToShoppingCart("produce", "Peas", 3);
+        shoppingCart.addItemToShoppingCart("beverages", "coconut water", 3);
+        shoppingCart.addItemToShoppingCart("beverages", "water", 5);
+        shoppingCart.addItemToShoppingCart("beverages", "juice", 2);
+        shoppingCart.addItemToShoppingCart("produce", "Spinach", 2);
+        shoppingCart.addItemToShoppingCart("produce", "Kale", 1);
+        shoppingCart.addItemToShoppingCart("produce", "Kale", 1);
+        shoppingCart.addItemToShoppingCart("produce", "Green beans", 1);
+        shoppingCart.addItemToShoppingCart("produce", "Green beans", 5);
     }
 }

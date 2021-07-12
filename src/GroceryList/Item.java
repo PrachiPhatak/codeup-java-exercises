@@ -28,7 +28,6 @@ public class Item implements Comparator<Item> {
 
     private boolean validate(String category) {
         return Arrays.asList(getCATEGORIES()).contains(category.toLowerCase());
-
     }
 
     public String getName() {
@@ -60,7 +59,7 @@ public class Item implements Comparator<Item> {
         }
     }
 
-    @Override
+    //@Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;

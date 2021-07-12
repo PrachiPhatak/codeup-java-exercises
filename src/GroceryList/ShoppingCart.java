@@ -133,4 +133,6 @@ public class ShoppingCart {
             System.out.println("Invalid category!");
         }
     }
+
+    //ValidateItem(Item item)
 }

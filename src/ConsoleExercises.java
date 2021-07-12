@@ -19,5 +19,10 @@ public class ConsoleExercises {
         System.out.println("Area of given rectangle: " + (length * width));
         System.out.println("Perimeter of given rectangle: " + (2 * (length + width)));
         System.out.println("Volume of the room: "+ (width * height * length));
+
+
+
     }
+
+
 }
