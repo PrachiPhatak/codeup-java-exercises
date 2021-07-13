@@ -1,7 +1,6 @@
 package grades;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -99,7 +98,7 @@ public class GradesApplication {
     private static void showStudentsInfo(HashMap<String, Student> students) {
         Student student;
         for (Map.Entry<String, Student> studentEntry : students.entrySet()) {
-            student = (Student) studentEntry.getValue();
+            student = studentEntry.getValue();
             student.print();
         }
     }

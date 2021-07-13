@@ -34,7 +34,7 @@ public class Input {
         }
     }
 
-    private static void createGroceryList(ShoppingCart shoppingCart) {
+    private static void createGroceryList(ShoppingCart shoppingCart){
         System.out.println("\nMake Grocery List\n" +
                 "0 - exit\n" +
                 "1 - Main menu\n" +

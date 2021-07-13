@@ -57,6 +57,34 @@ public class ShoppingCart {
         return categoriesAsString.toString();
     }
 
+//    public void sortCartByCategory1() {
+//        // Creating a list from elements of HashMap
+//        List<Map.Entry<Item, Integer> > list
+//                = new LinkedList<>(
+//                shoppingCart.entrySet());
+//
+//        // Sorting the list using Collections.sort() method
+//        // using Comparator
+//        list.sort(new Comparator<Map.Entry<Item, Integer>>() {
+//            public int compare(
+//                    Map.Entry<Item, Integer> object1,
+//                    Map.Entry<Item, Integer> object2) {
+//                return (object1.getKey().getCategory())
+//                        .compareTo(object2.getKey().getCategory());
+//            }
+//        });
+//
+//        // putting the  data from sorted list back to hashmap
+//        System.out.println(addPadding("Category", 30) +
+//                addPadding("Items", 30) +
+//                addPadding("Quantity", 30) + "\n");
+//
+//        for (Map.Entry<Item, Integer> cart : list) {
+//            System.out.println(cart.getKey() + addPadding(cart.getValue() + "", 30));
+//            //System.out.println(me.getKey().getCategory() + " : "+me.getKey().getName());
+//        }
+//    }
+
     public void sortCartByCategory() {
         if (shoppingCart.isEmpty()) {
             System.out.println("No items added to the cart");

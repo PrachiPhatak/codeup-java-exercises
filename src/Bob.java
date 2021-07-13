@@ -7,7 +7,7 @@ public class Bob {
         // allow the user to input a new username several times
         // until a unique username is entered.
         Scanner scanner = new Scanner(System.in);
-        String userInput ="";
+        String userInput;
         do{
             System.out.println("You said - ");
 
