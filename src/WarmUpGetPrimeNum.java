@@ -5,10 +5,11 @@ public class WarmUpGetPrimeNum {
 
     public static void main(String[] args) {
         getPrimes(20);
+        getPrimes(10);
+        getPrimes(18);
     }
 
     private static void getPrimes(int howMany) {
-
         List<Integer> primeList = new ArrayList<Integer>();
         primeList.add(1);
         primeList.add(2);
@@ -18,9 +19,7 @@ public class WarmUpGetPrimeNum {
                 primeList.add(j);
             }
         }
-
         System.out.println(primeList);
-
     }
 
     public static boolean isPrime(int n) {
