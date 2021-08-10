@@ -4,7 +4,7 @@ import java.util.*;
 
 public class CodenamedApp {
     public static void main(String[] args) {
-        int[] arr = {5,5,5,7};
+        int[] arr = {3,6,9,1,1,1,2,2};
         System.out.println("Yay! "+Solution.solution(arr));
     }
 }

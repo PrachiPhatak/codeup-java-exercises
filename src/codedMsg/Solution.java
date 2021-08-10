@@ -29,7 +29,7 @@ public class Solution {
         ArrayList<Integer> arrOfReminder2 = intToOccurrenceMap.get(2);
         divideArray(finalArray, finalRemainingArray2, arrOfReminder2);
 
-        if (finalRemainingArray1.size() != 0 || finalRemainingArray2.size() != 0)
+        if (finalRemainingArray1.size() != 0 && finalRemainingArray2.size() != 0)
             if (finalRemainingArray1.size() == finalRemainingArray2.size()) {
                 finalArray.addAll(finalRemainingArray1);
                 finalArray.addAll(finalRemainingArray2);
@@ -49,18 +49,21 @@ public class Solution {
     }
 
     private static void remainingNumbers(ArrayList<Integer> finalArray, ArrayList<Integer> finalRemainingArray1, ArrayList<Integer> finalRemainingArray2) {
-        finalArray.addAll(finalRemainingArray1);
-        if (finalRemainingArray2.size() > 1 && finalRemainingArray1.size() != 0)
-            if (finalRemainingArray2.get(0) > finalRemainingArray2.get(1)) {
-                finalArray.add(finalRemainingArray2.get(0));
-            } else if (finalRemainingArray2.get(0) < finalRemainingArray2.get(1)) {
-                finalArray.add(finalRemainingArray2.get(1));
-            } else {
-                finalArray.add(finalRemainingArray2.get(0));
-            }
+        if(finalRemainingArray1.size()>1){
+            finalArray.add(Math.max(finalRemainingArray1.get(0),finalRemainingArray1.get(1)));
+            finalArray.addAll(finalRemainingArray2);
+        }
+
+        if(finalRemainingArray2.size() >1){
+            finalArray.add(Math.max(finalRemainingArray2.get(0), finalRemainingArray2.get(1)));
+            finalArray.addAll(finalRemainingArray1);
+        }
+
+
     }
 
     private static void divideArray(ArrayList<Integer> finalArray, ArrayList<Integer> finalRemainingArray1, ArrayList<Integer> arrOfReminder1) {
+        Collections.sort(arrOfReminder1);
         if (arrOfReminder1.size() % 3 == 0) {
             finalArray.addAll(arrOfReminder1);
         } else if (arrOfReminder1.size() % 3 == 1) {

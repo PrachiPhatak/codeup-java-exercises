@@ -5,6 +5,7 @@ package codedMsg;
 // array and is divisible by 3
 
 import java.util.Arrays;
+import java.util.Collection;
 
 class test {
 
@@ -13,55 +14,57 @@ class test {
 
     // function to sort array of digits using
     // counts
-    static void sortArrayUsingCounts(int[] arr,
-                                     int n) {
+    static int[] sortArrayUsingCounts(int[] arr,
+                                      int n) {
         int MAX_SIZE = 10;
-        System.out.println(Arrays.toString(arr));
         // Store count of all elements
         int[] count = new int[MAX_SIZE];
         for (int i = 0; i < n; i++) {
             count[arr[i]]++;
         }
-        System.out.println(Arrays.toString(count));
         // Store
         int index = 0;
         for (int i = 0; i < MAX_SIZE; i++) {
             while (count[i] > 0) {
-                System.out.println(index+" "+i);
                 arr[index++] = i;
                 count[i]--;
             }
         }
-        System.out.println(Arrays.toString(arr));
+        return arr;
     }
 
     // Remove elements from arr[]
     // at indexes ind1 and ind2
-    static void removeAndPrintResult(int[] arr, int n,
-                                     int ind1, int ind2) {
+    static int removeAndPrintResult(int[] arr, int n,
+                                    int ind1, int ind2) {
+        int sum = 1;
         for (int i = n - 1; i >= 0; i--) {
             if (i != ind1 && i != ind2) {
-                System.out.print(arr[i]);
+                sum = sum + (arr[i] * (int) Math.pow(10, i));
             }
         }
+        return sum;
     }
 
     // Returns largest multiple of 3
     // that can be formed using
     // arr[] elements.
-    static void solution(int[] arr) {
+    static int solution(int[] arr) {
         int n = arr.length;
         // Sum of all array element
-        int sum = accumulate(arr);
+        int sum = addArray(arr);
 
         // If sum is divisible by 3,
         // no need to delete an element
         if (sum % 3 == 0) {
-            return;
+            int sum1 = 0;
+            for (int i = 0; i < arr.length; i++) {
+                sum1 = sum1 + (arr[0] * (int) Math.pow(10, i));
+            }
+            return sum1;
         }
 
         // Sort array element in increasing order
-
         sortArrayUsingCounts(arr, n);
 
         // Find reminder
@@ -81,8 +84,8 @@ class test {
 
                 // Store first element of remainder '1'
                 if (arr[i] % 3 == 1) {
-                    removeAndPrintResult(arr, n, i, -1);
-                    return;
+                    return removeAndPrintResult(arr, n, i, -1);
+                    //return rem_2;
                 }
 
                 if (arr[i] % 3 == 2) {
@@ -102,9 +105,8 @@ class test {
 
             if (rem_2[0] != -1 &&
                     rem_2[1] != -1) {
-                removeAndPrintResult(arr, n, rem_2[0],
+                return removeAndPrintResult(arr, n, rem_2[0],
                         rem_2[1]);
-                return;
             }
         }
 
@@ -122,8 +124,7 @@ class test {
 
                 // store first element of remainder '2'
                 if (arr[i] % 3 == 2) {
-                    removeAndPrintResult(arr, n, i, -1);
-                    return;
+                    return removeAndPrintResult(arr, n, i, -1);
                 }
 
                 if (arr[i] % 3 == 1) {
@@ -143,15 +144,14 @@ class test {
 
             if (rem_1[0] != -1 &&
                     rem_1[1] != -1) {
-                removeAndPrintResult(arr, n, rem_1[0],
+                return removeAndPrintResult(arr, n, rem_1[0],
                         rem_1[1]);
-                return;
             }
         }
-        System.out.print("Not possible");
+        return arr[0];
     }
 
-    static int accumulate(int[] arr) {
+    static int addArray(int[] arr) {
         int sum = 0;
         for (int j : arr) {
             sum += j;
@@ -159,9 +159,8 @@ class test {
         return sum;
     }
 
-    // Driver code
     public static void main(String[] args) {
-        int[] arr = {4, 4, 1, 5,1, 1, 3};
-        solution(arr);
+        int[] arr = {3,6,9,1,1,1,2,2};
+        System.out.println("Ans "+solution(arr));
     }
 }
